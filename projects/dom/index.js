@@ -10,7 +10,11 @@
  Пример:
    createDivWithText('loftschool') // создаст элемент div, поместит в него 'loftschool' и вернет созданный элемент
  */
-function createDivWithText(text) {}
+function createDivWithText(text) {
+  const element = document.createElement('div');
+  element.textContent = text;
+  return element;
+}
 
 /*
  Задание 2:
@@ -20,7 +24,9 @@ function createDivWithText(text) {}
  Пример:
    prepend(document.querySelector('#one'), document.querySelector('#two')) // добавит элемент переданный первым аргументом в начало элемента переданного вторым аргументом
  */
-function prepend(what, where) {}
+function prepend(what, where) {
+  where.prepend(what);
+}
 
 /*
  Задание 3:
@@ -41,7 +47,15 @@ function prepend(what, where) {}
 
    findAllPSiblings(document.body) // функция должна вернуть массив с элементами div и span т.к. следующим соседом этих элементов является элемент с тегом P
  */
-function findAllPSiblings(where) {}
+function findAllPSiblings(where) {
+  let elements = where.querySelectorAll('p');
+  let arr = [];
+  for (let elem of elements){
+    arr.push(elem.previousElementSibling);
+  }
+
+  return arr;
+}
 
 /*
  Задание 4:
@@ -63,7 +77,7 @@ function findAllPSiblings(where) {}
 function findError(where) {
   const result = [];
 
-  for (const child of where.childNodes) {
+  for (const child of where.children) {
     result.push(child.textContent);
   }
 
@@ -82,7 +96,16 @@ function findError(where) {
    После выполнения функции, дерево <div></div>привет<p></p>loftchool!!!
    должно быть преобразовано в <div></div><p></p>
  */
-function deleteTextNodes(where) {}
+function deleteTextNodes(where) {
+  for (let i = 0; i< where.childNodes.length; i++){
+    const el = where.childNodes[i];
+    
+    if (el.nodeType == Element.TEXT_NODE) {
+      where.removeChild(el);
+      i--;
+    }
+  }
+}
 
 /*
  Задание 6:
@@ -95,7 +118,19 @@ function deleteTextNodes(where) {}
    После выполнения функции, дерево <span> <div> <b>привет</b> </div> <p>loftchool</p> !!!</span>
    должно быть преобразовано в <span><div><b></b></div><p></p></span>
  */
-function deleteTextNodesRecursive(where) {}
+function deleteTextNodesRecursive(where) {
+  for (let i = 0; i< where.childNodes.length; i++){
+    const el = where.childNodes[i];
+    
+    if (el.nodeType == Element.TEXT_NODE) {
+      where.removeChild(el);
+      i--;
+    }
+    else if (el.nodeType == Element.ELEMENT_NODE) {
+      deleteTextNodesRecursive(el);
+    }
+  }
+}
 
 /*
  Задание 7 *:
@@ -117,7 +152,44 @@ function deleteTextNodesRecursive(where) {}
      texts: 3
    }
  */
-function collectDOMStat(root) {}
+function collectDOMStat(root) {
+  let stats = {
+    tags: {},
+    classes: {},
+    texts : 0
+  };
+
+  function obs(root){
+    for (let el of root.childNodes){
+       if (el.nodeType == Node.TEXT_NODE) {
+         stats.texts++;
+       }
+       else if (el.nodeType == Node.ELEMENT_NODE){
+         if (el.tagName in stats.tags){
+           stats.tags[el.tagName]++;
+         }
+         else {
+           stats.tags[el.tagName] = 1;
+         }
+
+         for (let className in stats.classList){
+          if (className in stats.classes){
+            stats.classes[className]++;
+          }
+          else {
+            stats.classes[className] = 1;
+          }
+         }
+
+         obs(el);
+       }
+    }
+  }
+
+  obs(root);
+
+  return stats;
+}
 
 /*
  Задание 8 *:
@@ -151,7 +223,29 @@ function collectDOMStat(root) {}
      nodes: [div]
    }
  */
-function observeChildNodes(where, fn) {}
+function observeChildNodes(where, fn) {
+  const config = {
+    childList: true,
+    subtree: true
+  };
+
+  const callback = function(mutationsList, observer) {
+    for (let mutation of mutationsList) {
+        if (mutation.type === 'childList') {
+            fn({
+              type : mutation.addedNodes.length ? 'insert' : 'remove',
+              nodes : [
+                ...(mutation.addedNodes.length ? mutation.addedNodes : mutation.removeNodes)
+              ]
+            });
+        } 
+    }
+  };
+
+  const observer = new MutationObserver(callback);
+
+  observer.observe(where, config);
+}
 
 export {
   createDivWithText,
