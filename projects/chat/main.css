@@ -1,0 +1,239 @@
+html, body, #main{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+
+#login{
+  background: #17212B;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+
+#entry{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #5188C1;
+  color: white;
+  text-transform: uppercase;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  padding: 13px 40px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.message-item{
+  display: flex;
+  margin: 10px;
+}
+
+.message-item-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #182633;
+  border-radius: 5px;
+  padding: 2px 10px;
+}
+
+.message-item-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 4px;
+  align-items: center;
+}
+
+.message-item-header-name{
+  color: #5387C1;
+  margin-right: 7px;
+}
+
+.message-item-header-time{
+  color: #7F91A4;
+  font-size: 13px;
+}
+
+.message-item-text{
+  color: white;
+}
+
+.message-item-system{
+  color: #7F91A4;
+}
+
+.login__container{
+  width: 450px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login__header{
+  color: white;
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.login__desc{
+  color: #7F91A4;
+  text-align: center;
+  width: 318px;
+  margin-bottom: 32px;
+  font-size: 16px;
+}
+
+#username__input{
+  border: none;
+  background: none;
+  color: #858F98;
+  width: 234px;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+#username__input:focus{
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.input__name{
+  position: relative;
+  height: 40px;
+  margin-bottom: 38px;
+  
+}
+
+.input__name:after{
+  position: absolute;
+  content: "";
+  width: 250px;
+  height: 1px;
+  background: #465461;
+  display: block;
+}
+
+.login_img{
+  margin-bottom: 28px;
+}
+
+#main {
+  display: flex;
+}
+
+.left-side {
+  flex-grow: 1;
+  max-width: 320px;
+  background: #17212B;
+  color: #5387C1;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.user-info {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.user-name {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.user-photo, .message-item-photo {
+  margin-right: 15px;
+  background: #232F3D;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
+}
+
+.user-list-header {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.user-list {
+  padding: 5px 0 0 10px
+}
+
+.right-side {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  
+}
+
+.messages-container {
+  flex-grow: 1;
+  overflow: scroll;
+  background: #0E1621;
+}
+
+.messages-container::-webkit-scrollbar {
+  display: none;
+}
+
+.input-container {
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  background: #17212B;
+  padding: 10px;
+}
+
+.message-input {
+  height: 30px;
+  flex-grow: 1;
+  margin: 0 10px 0 0;
+  border: none;
+  background: none;
+  color: #5B6774;
+  font-size: 16px;
+}
+
+.message-input:focus{
+  border: none;
+  outline: none;
+  color: white;
+}
+
+.send-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: #5188C1;
+  color: white;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  padding: 13px 40px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+
+.hidden{
+  display: none !important;
+}
