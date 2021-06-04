@@ -233,6 +233,105 @@ html, body, #main{
   font-weight: 500;
 }
 
+.AvatarSetForm{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  align-items: center;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.FormBlock{
+  padding: 35px;
+  width: 320px;
+  height: 170px;
+  position: relative;
+  background: #17212B;
+  border-radius: 5px;
+  color: white;
+  font-size: 18px;
+}
+
+.FormBlock__header{
+  font-weight: 500;
+  margin-bottom: 39px;
+}
+
+.FormBlock__content{
+  display: flex;
+  align-items: center;
+}
+
+.FormBlock__content-upload{
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background-color: #232F3D;
+  background-image: url('./img/upload.svg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  margin-right: 17px;
+}
+
+.form_user-name{
+  margin-right: 20px;
+}
+
+.save-button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: #6BB2F2;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.save-button:hover{
+  background: #1D2A3A;
+}
+
+.reject-button{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: none;
+  color: #6BB2F2;
+  font-family: 'Ubuntu';
+  font-size: 15px;
+  padding: 10px 12px;
+  cursor: pointer;
+  font-weight: 400;
+  margin-right: 7px;
+}
+
+.reject-button:hover{
+  background: #1D2A3A;
+}
+
+.close-elem{
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  right: 3%;
+  top: 4%;
+  background: url('./img/close.svg') center center no-repeat;
+  cursor: pointer;
+}
+
+#main-photo{
+  cursor: pointer;
+}
 
 .hidden{
   display: none !important;
