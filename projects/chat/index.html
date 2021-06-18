@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="main.css">
+  <title>Chat</title>
+</head>
+<body>
+  <div id="login" class="hidden">
+    <div class="login__container">
+      <img src="./img/login.svg" alt="" class="login_img">
+      <div class="login__header">
+        Авторизация
+      </div>
+      <div class="login__desc">
+        Введите пожалуйста свой ник для дальнейшей авторизации
+      </div>
+      <div class="input__name">
+        <input type="text" id="username__input" placeholder="Введите свой ник">
+      </div>
+      <button id="entry">Войти</button>
+    </div>
+  </div>
+  
+  <div id="main" class="hidden">
+    <div class="left-side">
+        <div class="user-info">
+            <div class="user-photo" id="main-photo" data-role="user-photo"></div>
+            <div class="user-name" data-role="user-name"></div>
+        </div>
+
+        <div class="user-list-container">
+            <div class="user-list-header">
+                Все пользователи:
+            </div>
+            <div class="user-list" data-role="user-scroll">
+            </div>
+        </div>
+    </div>
+    <div class="right-side">
+        <div class="messages-container" data-role="msg-scroll"></div>
+        <div class="input-container" data-role="msg-send">
+            <input class="message-input" data-role="message-input" type="text" placeholder="сообщение"/>
+            <button class="send-button" data-role="message-send-button">Отправить</button>
+        </div>
+    </div>
+</div>
+<script src="./build.js"></script>
+</body>
+</html>
